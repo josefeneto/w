@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+</head>
+
+<body>
+
+    <script>
+        let promise = fetch('http://github.com/josefeneto/HTML-learning/blob/master/coffee.jpg');
+        let promise2 = promise.then(response => response.blob());
+        let promise3 = promise2.then(myBlob => {
+            let objectURL = URL.createObjectURL(myBlob);
+            let image = document.createElement('img');
+            image.src = objectURL;
+            document.body.appendChild(image);
+        })
+    </script>
+</body>
+
+</html>
